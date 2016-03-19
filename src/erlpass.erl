@@ -34,9 +34,10 @@ hash(Str, Factor) ->
 %% @doc Compares a given password to a hash. Returns <code>true</code> if
 %% the password matches, and <code>false</code> otherwise. The comparison
 %% is done in constant time (based on the hash length)
--spec match(password(), hash()) -> boolean().
-match(Pass, Hash) ->
-    LHash = binary_to_list(Hash),
+-spec match(password(), Hash :: list() | binary()) -> boolean().
+match(Pass, Hash) when is_binary(Hash) ->
+    match(Pass, binary_to_list(Hash));
+match(Pass, LHash) ->
     {ok, ResHash} = bcrypt:hashpw(format_pass(Pass), LHash),
     verify_in_constant_time(LHash, ResHash).
 
