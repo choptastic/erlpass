@@ -1,4 +1,4 @@
 [{<<"bcrypt">>,
-  {git,"https://github.com/opscode/erlang-bcrypt.git",
-       {ref,"5cbe6becbe926739adebc67c6827ac2a2b9e7bbd"}},
+  {git,"https://github.com/erlangpack/bcrypt.git",
+       {ref,"c2156fff699908e6087bdcd1255c26ffffeacfae"}},
   0}].
